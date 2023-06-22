@@ -2,9 +2,8 @@
 
 const webpack = require('webpack');
 const path  = require('path');
-const Extract = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MinifyPlugin = require("babel-minify-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const PROD = process.env.NODE_ENV === 'production';
 const DEV = !PROD;
@@ -12,11 +11,11 @@ const DEV = !PROD;
 const config = {
     entry: ['./examples/index.js'],
     output: {
-        filename: DEV ? 'bundle.js' : 'bundle.[hash].js',
+        filename: '[id][chunkhash].js',
         path: path.resolve(__dirname, '../public'),
         publicPath: DEV ? '/' : '/react-contextmenu/',
         hashDigestLength: 6,
-        sourceMapFilename: 'bundle.js.map'
+        chunkFilename: '[id].[chunkhash].js',
     },
     resolve: {
         modules: [
@@ -32,8 +31,8 @@ const config = {
                     loader: 'babel-loader',
                     options: {
                          presets: [
-                            'react',
-                            ['env', {
+                            '@babel/preset-react',
+                            ['@babel/preset-env', {
                                 modules: false,
                                 targets: {
                                     browsers: 'IE >= 11, Edge >= 12, FireFox >= 38, Chrome >= 47, Opera >= 34, Safari >= 8'
@@ -41,7 +40,8 @@ const config = {
                             }]
                         ],
                         plugins: [
-                            'transform-class-properties'
+                            '@babel/plugin-transform-runtime',
+                            '@babel/plugin-proposal-class-properties'
                         ]
                     }
                 }],
@@ -51,25 +51,33 @@ const config = {
                 ]
             },
             {
-                test: /\.css$/,
-                use: Extract.extract({
-                    fallback: 'style-loader',
-                    use: [{
-                        loader: 'css-loader'
-                    }]
-                }),
-            }
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, "css-loader"],
+            },
         ]
     },
     plugins: [
-        new Extract({
-            filename: DEV ? 'styles.css' : 'styles.[contenthash:6].css',
-            allChunks: true
+        new MiniCssExtractPlugin(DEV ? {
+            filename: 'styles.css',
+        } : {
+            chunkFilename: 'styles.[contenthash:6].css'
         }),
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
             inject: true,
-            filename: 'index.html'
+            filename: 'index.html',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+            },
         })
     ]
 };
@@ -90,7 +98,6 @@ PROD && config.plugins.push(
             'NODE_ENV': JSON.stringify('production')
         }
     }),
-    new MinifyPlugin()
 );
 
 module.exports = config;

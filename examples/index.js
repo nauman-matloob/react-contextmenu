@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, NavLink as Link, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, NavLink as Link, Routes } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
 
 import SimpleMenu from './SimpleMenu';
 import MultipleTargets from './MultipleTargets';
@@ -15,7 +15,7 @@ import './react-contextmenu.css';
 
 const commonProps = {
     className: 'pure-menu-link',
-    activeClassName: 'link-active'
+    activeclassname: 'link-active'
 };
 
 function App() {
@@ -65,24 +65,27 @@ function App() {
                     </li>
                 </ul>
             </div>
-            <Switch>
-                <Route path='/simple-menu' component={SimpleMenu} />
-                <Route path='/multiple-targets' component={MultipleTargets} />
-                <Route path='/multiple-menus' component={MultipleMenus} />
-                <Route path='/submenus' component={SubMenus} />
-                <Route path='/dynamic-menu' component={DynamicMenu} />
-                <Route path='/customization' component={Customization} />
-                <Route path='/rtl-submenus' component={RTLSubMenu} />
-                <Route path='/nested' component={Nested} />
-            </Switch>
+            <Routes>
+                <Route path='/simple-menu' element={<SimpleMenu />} />
+                <Route path='/multiple-targets' element={<MultipleTargets />} />
+                <Route path='/multiple-menus' element={<MultipleMenus />} />
+                <Route path='/submenus' element={<SubMenus />} />
+                <Route path='/dynamic-menu' element={<DynamicMenu />} />
+                <Route path='/customization' element={<Customization />} />
+                <Route path='/rtl-submenus' element={<RTLSubMenu />} />
+                <Route path='/nested' element={<Nested />} />
+            </Routes>
         </div>
     );
 }
 
-const Routes = (
+const AppRoutes = (
     <Router>
         <App />
     </Router>
 );
 
-ReactDOM.render(Routes, document.getElementById('main'));
+const container = document.getElementById('main');
+const root = createRoot(container);
+
+root.render(AppRoutes);
