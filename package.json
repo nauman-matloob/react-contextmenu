@@ -1,7 +1,7 @@
 {
   "name": "react-contextmenu",
   "version": "1.0.0",
-  "description": "Context Menu implemented in React forked from vkbansal/react-contextmenu. compatible React 18",
+  "description": "Context Menu implemented in React",
   "main": "modules/index.js",
   "module": "es6/index.js",
   "typings": "src/index.d.ts",
@@ -26,7 +26,7 @@
     "clean": "rimraf ./dist && rimraf ./modules && rimraf ./es6",
     "clean:examples": "rimraf ./public",
     "build": "npm run clean && npm run test && npm run build:dist && npm run build:es5 && npm run build:es6",
-    "build:dist": "webpack --mode production --progress --profile --colors",
+    "build:dist": "webpack --mode production --progress --profile",
     "build:es5": "cross-env BABEL_ENV=es5 babel src --out-dir modules",
     "build:es6": "cross-env BABEL_ENV=es6 babel src --out-dir es6",
     "build:examples": "npm run clean:examples && npm run build:dev",
