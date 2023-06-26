@@ -1,6 +1,7 @@
 /* eslint-disable */
 const webpack = require('webpack');
 const path = require('path');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
@@ -8,6 +9,10 @@ module.exports = {
         filename: "dist/react-contextmenu.js",
         libraryTarget: 'umd',
         library: 'ReactContextMenu'
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
     },
     module: {
         rules: [
@@ -17,9 +22,6 @@ module.exports = {
                 options: {
                     presets: [
                         '@babel/preset-react',
-                        ['es2020', {
-                            modules: false
-                        }]
                     ],
                     plugins: [
                         '@babel/plugin-transform-runtime',
@@ -52,10 +54,5 @@ module.exports = {
                 "NODE_ENV": JSON.stringify("production")
             }
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                warnings: false
-            }
-        })
     ]
 };

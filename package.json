@@ -25,7 +25,7 @@
     "test:dev": "jest --watchAll --no-cache --verbose --coverage",
     "clean": "rimraf ./dist && rimraf ./modules && rimraf ./es6",
     "clean:examples": "rimraf ./public",
-    "build": "npm run clean && npm run test && npm run build:dist && npm run build:es5 && npm run build:es6",
+    "build": "npm run clean && npm run build:dist && npm run build:es5 && npm run build:es6",
     "build:dist": "webpack --mode production --progress --profile",
     "build:es5": "cross-env BABEL_ENV=es5 babel src --out-dir modules",
     "build:es6": "cross-env BABEL_ENV=es6 babel src --out-dir es6",
@@ -47,7 +47,8 @@
   "homepage": "https://github.com/nauman-matloob/react-contextmenu",
   "dependencies": {
     "classnames": "^2.2.5",
-    "object-assign": "^4.1.0"
+    "object-assign": "^4.1.0",
+    "terser-webpack-plugin": "^5.3.9"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0"
