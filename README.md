@@ -8,13 +8,9 @@ updated version for react 18
 ## Table of contents
 
  - [Installation](#installation)
- - [Browser Support](#browser-support)
  - [Usage](#usage)
  - [API](#api)
  - [FAQs](#faqs)
- - [Contributors](#contributors)
- - [Changelog](#changelog)
- - [License](#license)
 
 ## Installation
 
