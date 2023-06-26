@@ -1,7 +1,7 @@
 {
   "name": "react-contextmenu",
   "version": "1.0.0",
-  "description": "Context Menu implemented in React",
+  "description": "Context Menu implemented in React forked from vkbansal/react-contextmenu. compatible React 18",
   "main": "modules/index.js",
   "module": "es6/index.js",
   "typings": "src/index.d.ts",
