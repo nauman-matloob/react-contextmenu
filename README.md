@@ -1,15 +1,10 @@
-[![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][deps-image]][deps-url]
-[![Dev Dependency Status][dev-deps-image]][dev-deps-url]
-[![Code Climate][climate-image]][climate-url]
+[![NPM](https://nodei.co/npm/@naumandev/react-contextmenu.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/@naumandev/react-contextmenu/)
 
-[![NPM](https://nodei.co/npm/react-contextmenu.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/react-contextmenu/)
-
-# React Contextmenu
+# React Contextmenu for react 18
 Forked from vkbansal.github.io/react-contextmenu/
 ContextMenu in React with accessibility support. Live Examples can be found [here](//vkbansal.github.io/react-contextmenu/)
 updated version for react 18
+
 ## Table of contents
 
  - [Installation](#installation)
@@ -88,34 +83,3 @@ see [usage docs](./docs/usage.md) / [examples](./examples) for more details.
 
 [ALL FAQs](./docs/faq.md)
 
-## Who's using react-contextmenu?
-- [react-data-grid](https://github.com/adazzle/react-data-grid)
-- [teamup.com](https://teamup.com)
-- [Spotify Web Player](https://open.spotify.com)
-
-## Contributors
-
-[All Contributors](https://github.com/vkbansal/react-contextmenu/graphs/contributors)
-
-## Changelog
-
-For Changelog, see [releases](https://github.com/vkbansal/react-contextmenu/releases)
-
-## License
-
-[MIT](./LICENSE.md). Copyright(c) [Vivek Kumar Bansal](http://vkbansal.me/)
-
-[npm-url]: https://npmjs.org/package/react-contextmenu
-[npm-image]: http://img.shields.io/npm/v/react-contextmenu.svg?style=flat-square
-
-[travis-url]: https://travis-ci.org/vkbansal/react-contextmenu
-[travis-image]: http://img.shields.io/travis/vkbansal/react-contextmenu/master.svg?style=flat-square
-
-[deps-url]: https://david-dm.org/vkbansal/react-contextmenu
-[deps-image]: https://img.shields.io/david/vkbansal/react-contextmenu.svg?style=flat-square
-
-[dev-deps-url]: https://david-dm.org/vkbansal/react-contextmenu
-[dev-deps-image]: https://img.shields.io/david/dev/vkbansal/react-contextmenu.svg?style=flat-square
-
-[climate-url]: https://codeclimate.com/github/vkbansal/react-contextmenu
-[climate-image]: http://img.shields.io/codeclimate/github/vkbansal/react-contextmenu.svg?style=flat-square
