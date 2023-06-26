@@ -1,5 +1,3 @@
-# Project is no longer maintained
-
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][deps-image]][deps-url]
@@ -9,9 +7,9 @@
 [![NPM](https://nodei.co/npm/react-contextmenu.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/react-contextmenu/)
 
 # React Contextmenu
-
+Forked from vkbansal.github.io/react-contextmenu/
 ContextMenu in React with accessibility support. Live Examples can be found [here](//vkbansal.github.io/react-contextmenu/)
-
+updated version for react 18
 ## Table of contents
 
  - [Installation](#installation)
@@ -36,13 +34,6 @@ Using yarn
 ```
 yarn add react-contextmenu
 ```
-
-## Browser Support
-- IE 11 and Edge >= 12
-- FireFox >= 38
-- Chrome >= 47
-- Opera >= 34
-- Safari >= 8
 
 ## Usage
 
